@@ -9,8 +9,13 @@ function App() {
   const current=questions[currentIndex];
 
   const handleAnswer = (option) => {
-  console.log("Seçilen:", option);
+  
+    if(currentIndex+1<questions.length){
+      setCurrentIndex((s)=>s+1)
+    }
+  
 };
+
 
   return (
     <>

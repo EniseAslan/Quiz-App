@@ -8,7 +8,7 @@ function QuestionCard({ question, onAnswer }) {
       <div className="flex flex-col gap-3">
         {question.options.map((option, index) => (
           <button
-            key={index}
+            key={option}
             onClick={() => onAnswer(option)}
             className="text-left px-4 py-3 rounded-lg border-2 border-gray-200 
                        hover:border-blue-400 hover:bg-blue-50 
@@ -18,6 +18,7 @@ function QuestionCard({ question, onAnswer }) {
           </button>
         ))}
       </div>
+      
     </div>
   );
 }
