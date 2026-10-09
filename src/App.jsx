@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { questions } from './data/questions'
 import './App.css'
 import QuestionCard from './QuestionCard';
+import ScoreBoard from './ScoreBoard';
 
 function App() {
 
@@ -10,6 +11,13 @@ function App() {
   const [score,setScore]=useState(0);
   const [finished, setFinished]=useState(false)
   
+function handleRestart(){
+setCurrentIndex(0);
+setScore(0);
+setFinished(false);
+
+
+}
 
   const handleAnswer = (option) => {
 
@@ -33,7 +41,7 @@ function App() {
     <>
      <div className="min-h-screen bg-slate-100 flex flex-col items-center justify-center p-4">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Quiz App</h1>
-      {finished ?  <p>Quiz bitti! Skor: {score}</p>  : <QuestionCard question={current} onAnswer={handleAnswer} />}
+      {finished ?  <ScoreBoard onRestart={handleRestart} score={score} total={questions.length}/>  : <QuestionCard question={current} onAnswer={handleAnswer} />}
       
       
     </div>
