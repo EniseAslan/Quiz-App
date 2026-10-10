@@ -3,6 +3,7 @@ import { questions } from './data/questions'
 import './App.css'
 import QuestionCard from './QuestionCard';
 import ScoreBoard from './ScoreBoard';
+import ProgressBar from './ProgressBar';
 
 function App() {
 
@@ -41,6 +42,8 @@ setFinished(false);
     <>
      <div className="min-h-screen bg-slate-100 flex flex-col items-center justify-center p-4">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Quiz App</h1>
+{!finished && <ProgressBar current={currentIndex+1} total={questions.length}/>}
+
       {finished ?  <ScoreBoard onRestart={handleRestart} score={score} total={questions.length}/>  : <QuestionCard question={current} onAnswer={handleAnswer} />}
       
       
