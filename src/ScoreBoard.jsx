@@ -1,4 +1,4 @@
-function ScoreBoard({ score, total, onRestart }) {
+function ScoreBoard({ score, total, onRestart, highScore }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-xl text-center">
       <h2 className="text-lg font-medium text-gray-500 uppercase ">
@@ -8,7 +8,7 @@ function ScoreBoard({ score, total, onRestart }) {
       <p className="text-6xl font-extrabold text-purple-600 my-4">
         {score} <span className="text-3xl text-gray-400">/ {total}</span>
       </p>
-
+<p className="text-sm text-gray-500 mb-6"> En yüksek skor: {highScore}</p>
       <button
         onClick={onRestart}
         className="px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold
